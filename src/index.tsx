@@ -1,41 +1,46 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+import { JsxElement } from 'typescript';
 
 interface AppProps {
   color?: string;
 }
 
-interface AppState {
-  counter: number;
+const App = (props: AppProps): JSX.Element =>{
+return <div>{props.color}</div>
 }
 
-class App extends React.Component<AppProps, AppState> {
-  //Property way
-  state = { counter: 0 };
+// interface AppState {
+//   counter: number;
+// }
 
-  //Constructor way
-  constructor(props: AppProps) {
-    super(props);
+// class App extends React.Component<AppProps, AppState> {
+//   //Property way
+//   state = { counter: 0 };
 
-    this.state = { counter: 0 };
-  }
+//   //Constructor way
+//   constructor(props: AppProps) {
+//     super(props);
 
-  onIncrement = (): void => {
-    this.setState({ counter: this.state.counter + 1 });
-  };
-  onDecrement = (): void => {
-    this.setState({ counter: this.state.counter - 1 });
-  };
+//     this.state = { counter: 0 };
+//   }
 
-  render() {
-    return (
-      <div>
-        <button onClick={this.onIncrement}>Increment</button>
-        <button onClick={this.onDecrement}>Decrement</button>
-        {this.state.counter}
-      </div>
-    );
-  }
-}
+//   onIncrement = (): void => {
+//     this.setState({ counter: this.state.counter + 1 });
+//   };
+//   onDecrement = (): void => {
+//     this.setState({ counter: this.state.counter - 1 });
+//   };
 
-ReactDom.render(<App />, document.querySelector('#root'));
+//   render() {
+//     return (
+//       <div>
+//         <button onClick={this.onIncrement}>Increment</button>
+//         <button onClick={this.onDecrement}>Decrement</button>
+//         {this.state.counter}
+//       </div>
+//     );
+//   }
+// }
+
+ReactDom.render(<App color="red"/>, document.querySelector('#root'));
